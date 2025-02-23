@@ -1,78 +1,162 @@
 @import './utilities.css';
 @import './variables.css';
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
-body{
-    font-family: 'Montserrat', sans-serif;
-    color: var(--pure);
-    background: var(--primary); 
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--pure);
+  background: var(--primary);
 }
 
-header{
-    background:linear-gradient(135deg,rgba(0,0,0,1),rgba(0,0,0,0.2)), url(../img/sunrise.jpg);
-    min-height: 100vh;
-    background-size: cover;
+header {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2)),
+    url(../img/sunrise.jpg);
+  min-height: 100vh;
+  background-size: cover;
 }
 
 header nav {
-    padding: 20px 40px 20px 100px;
-    display: grid;
-    grid-template-columns:1fr 2fr;
-    align-items: center;
-    border-bottom: 1px solid var(--gray);
+  padding: 20px 40px 20px 100px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  border-bottom: 1px solid var(--gray);
 }
 
-header nav .nav-right{
-    display: flex;
-    justify-content: space-between;
+header nav .nav-right {
+  display: flex;
+  justify-content: space-between;
 }
 
 header nav .nav-right a {
-    text-decoration: none;
-    color: var(--pure);
-    margin-right: 30px;
-    position: relative;
+  text-decoration: none;
+  color: var(--pure);
+  margin-right: 30px;
+  position: relative;
 }
 
-header nav .nav-right a:after{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -32px;
-    width: 0;
-    height: 2px;
-    background: var(--pure);
-    transition: .3s ease-in-out;
+header nav .nav-right a:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -32px;
+  width: 0;
+  height: 2px;
+  background: var(--pure);
+  transition: 0.3s ease-in-out;
 }
 
-header nav .nav-right a:hover:after{
-    width: 70%;
+header nav .nav-right a:hover:after {
+  width: 70%;
 }
-header nav .nav-right a.active:after{
-    width: 70%;
-}
-
-header nav .nav-right .search > div{
-    background: var(--dark);
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    border-radius: 50px;
+header nav .nav-right a.active:after {
+  width: 70%;
 }
 
-header nav .nav-right .search > div input{
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    color: #fff;
+header nav .nav-right .search > div {
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 50px;
 }
-header nav .nav-right .search > div img{
-    padding-right: 16px;
+
+header nav .nav-right .search > div input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+}
+header nav .nav-right .search > div img {
+  padding-right: 16px;
+}
+.social div {
+  border: 2px solid var(--pure);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+@keyframes moveIn {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.social div a i {
+  color: var(--pure);
+  /* font-size: 20px; */
+}
+.social div:hover a i {
+  color: var(--dark);
+  transition: all 0.5s ease-in-out;
+}
+.social div:hover {
+  background: var(--pure);
+  color: var(--dark);
+}
+
+.hero {
+  position: relative;
+}
+
+.social {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-right: 1px solid var(--gray);
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 90vh;
+}
+.hero .cta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(100vh - 100px);
+  
+}
+.hero .cta h1{
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+.hero .cta > div{
+  flex: 1;
+}
+
+.hero .cta .left-section{
+  padding: 0 60px 0 30px;
+}
+.hero .cta .right-section img{
+   height: 70vh;
+   transform: rotate(30deg);
+   animation: movesInSpace 12s ease-in-out infinite alternate;
+}
+@keyframes movesInSpace {
+   50% {
+     transform: translateY(100px) rotate(-30deg) scale(0.8);
+   }
 }
